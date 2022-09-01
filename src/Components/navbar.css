@@ -1,0 +1,30 @@
+nav {
+    padding: 1rem 0;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 5px #dfdddd;
+}
+.container{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.links a{
+    padding: 5px 1rem;
+}
+
+.links a:last-child{
+    border-radius: 10px;
+    background-color: var(--crimson);
+    color: #fff;
+}
+
+.links a.active{
+    color: var(--crimson);
+}
