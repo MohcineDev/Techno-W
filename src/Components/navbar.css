@@ -3,16 +3,17 @@ nav {
     background-color: #f7f7f7;
     box-shadow: 0 0 5px #dfdddd;
 }
-.container{
+.nav-container{
+    width: 95%;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    width: 95%;
 
 }
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 .links a{

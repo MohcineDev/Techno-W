@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
+import { loginContext } from '../Contexts/Login'
 
 function NavBar() {
+
+    const { logged } = useContext(loginContext)
+
     return (
         <nav>
-            <div className="container">
+            <div className="nav-container">
 
                 <NavLink to="/">Logo</NavLink>
                 <div className='links'>
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/posts">Posts</NavLink>
+                    {
+                        logged ? <NavLink to="/posts">Posts</NavLink> : ''
+                    }
                     <Link to="/login">Login</Link>
                 </div>
             </div>

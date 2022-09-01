@@ -1,0 +1,10 @@
+.container{
+    width: 95%;
+    margin: auto;
+    
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}

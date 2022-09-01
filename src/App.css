@@ -1,7 +1,12 @@
-:root{
-    --crimson:#fc5555;
+:root {
+    --crimson: #fc5555;
 }
 
-.App{
-  
+.App {
+    background-color: #eaeaea;
+    min-height: 100vh;
+}
+
+h1{
+    margin-top: 0;
 }

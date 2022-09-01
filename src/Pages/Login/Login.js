@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useFormik } from 'formik'
+import { loginContext } from '../../Contexts/Login'
 import './login.css'
 
 
@@ -23,7 +24,10 @@ const validate = values => {
 
   return errors
 }
+
 function Login() {
+
+  const { setlogged } = useContext(loginContext)
 
   const formik = useFormik({
     initialValues: {
@@ -32,41 +36,43 @@ function Login() {
     },
     validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2))
+      localStorage.setItem('credentials', JSON.stringify(values))
+      setlogged(true)
     }
   })
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
+    <div className='login-container'>
+      <div className="login-wrapper">
 
-          <label htmlFor="email">email</label>
-          <input type="email" placeholder='email@example.com' name="email"
-            id="email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-          />
-          {formik.errors.email && formik.touched.email ?
-            <span>{formik.errors.email}</span> : null}
+        <h2>Login</h2>
+        <form onSubmit={formik.handleSubmit}>
+          <div>
+            <label htmlFor="email">email</label>
+            <input type="email" placeholder='email@example.com' name="email"
+              id="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            {formik.errors.email && formik.touched.email ?
+              <span>{formik.errors.email}</span> : null}
+          </div>
 
-        </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input type="password" placeholder='password' name="password"
+              id="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+            />
+            {formik.errors.password && formik.touched.password ?
+              <span>{formik.errors.password}</span> : null}
+          </div>
 
-        <div>
-          <label htmlFor="">Password</label>
-          <input type="password" placeholder='password' name="password"
-            id="password"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-          />
-          {formik.errors.password && formik.touched.password ?
-            <span>{formik.errors.password}</span> : null}
-
-        </div>
-        <input type="submit" value="Login" />
-      </form>
+          <input type="submit" value="Login" />
+        </form>
+      </div>
     </div>
   )
 }

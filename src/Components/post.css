@@ -1,0 +1,10 @@
+.card {
+    background-color: #fff;
+    padding: 1rem;
+}
+.card h2{
+    margin: 0;
+}
+.card p {
+    color: #555;
+}
